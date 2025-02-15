@@ -127,7 +127,6 @@ def model_req(payload=None):
         return -1, f"!!ERROR!! HTTP Response={response.status_code}, {response.text}"
     return
 
-
 ###
 ### DEBUG
 ###
@@ -138,18 +137,16 @@ if __name__ == "__main__":
     parser.add_argument("target", choices=["ollama-local", "ollama-remote", "open-webui"], default="open-webui", nargs='?', help="The target to be used") 
     parser.add_argument("model", type=str, default="phi4:latest", nargs='?', help="The model name to be used")
     parser.add_argument("system_instructions", type=str, default="Act like you are a math teacher\nYour student is asking:", nargs='?', help='System instruction to be used')
-    parser.add_argument("format_response", type=str, default="give a super detailed answer", nargs='?', help='format response') #Give only the answer; refrain from any more information
+    parser.add_argument("format_response", type=str, default="give a super detailed answer", nargs='?', help='format response')
     args=parser.parse_args()
     
     from _pipeline import create_payload, model_req
     
-    # _PROMPT = args.prompt
     MESSAGE = args.prompt
     TARGET= args.target
     MODEL = args.model
     TEMPLATE_BEFORE = args.system_instructions
     TEMPLATE_AFTER = args.format_response
-    # PROMPT = TEMPLATE_BEFORE + '\n' + _PROMPT + '\n' + TEMPLATE_AFTER
     PROMPT = TEMPLATE_BEFORE + '\n' + MESSAGE + '\n' + TEMPLATE_AFTER
 
     payload=create_payload(
