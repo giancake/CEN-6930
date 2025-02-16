@@ -45,7 +45,10 @@ def create_payload(model, prompt, target="ollama", **kwargs):
     """
 
     payload = None
-    if target == "ollama":
+    # print("Payload being sent:", json.dumps(payload))
+
+    # if target == "ollama":
+    if target == "ollama-remote":
         payload = {
             "model": model,
             "prompt": prompt, 
@@ -53,8 +56,11 @@ def create_payload(model, prompt, target="ollama", **kwargs):
         }
         if kwargs:
             payload["options"] = {key: value for key, value in kwargs.items()}
+        
+        # print("Payload being sent:", json.dumps(payload))
 
     elif target == "open-webui":
+    # elif target == "ollama-remote":        
         '''
         @TODO need to verify the forma for 'parameters' for 'open-webui' is correct.
         [Issue 2](https://github.com/genilab-fau/prompt-eng/issues/2)
@@ -70,6 +76,8 @@ def create_payload(model, prompt, target="ollama", **kwargs):
     
     else:
         print(f'!!ERROR!! Unknown target: {target}')
+    
+    # print(os.environ)
     return payload
 
 
@@ -134,8 +142,8 @@ def model_req(payload=None):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Run the model pipeline")
     parser.add_argument("prompt", type=str, default="1+1", nargs='?', help="The prompt to be used")
-    parser.add_argument("target", choices=["ollama-local", "ollama-remote", "open-webui"], default="open-webui", nargs='?', help="The target to be used") 
-    parser.add_argument("model", type=str, default="phi4:latest", nargs='?', help="The model name to be used")
+    parser.add_argument("target", choices=["ollama-local", "ollama-remote", "open-webui"], default="ollama-remote", nargs='?', help="The target to be used") 
+    parser.add_argument("model", type=str, default="gemma", nargs='?', help="The model name to be used")
     parser.add_argument("system_instructions", type=str, default="Act like you are a math teacher\nYour student is asking:", nargs='?', help='System instruction to be used')
     parser.add_argument("format_response", type=str, default="give a super detailed answer", nargs='?', help='format response')
     args=parser.parse_args()
