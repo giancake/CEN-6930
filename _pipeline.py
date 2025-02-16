@@ -45,9 +45,7 @@ def create_payload(model, prompt, target="ollama", **kwargs):
     """
 
     payload = None
-    # print("Payload being sent:", json.dumps(payload))
 
-    # if target == "ollama":
     if target == "ollama-remote":
         payload = {
             "model": model,
@@ -56,11 +54,8 @@ def create_payload(model, prompt, target="ollama", **kwargs):
         }
         if kwargs:
             payload["options"] = {key: value for key, value in kwargs.items()}
-        
-        # print("Payload being sent:", json.dumps(payload))
 
     elif target == "open-webui":
-    # elif target == "ollama-remote":        
         '''
         @TODO need to verify the forma for 'parameters' for 'open-webui' is correct.
         [Issue 2](https://github.com/genilab-fau/prompt-eng/issues/2)
@@ -70,14 +65,12 @@ def create_payload(model, prompt, target="ollama", **kwargs):
             "messages": [ {"role" : "user", "content": prompt } ]
         }
 
-        # payload.upload({key: value for key, value in kwargs.items()})
         payload.update({key: value for key, value in kwargs.items()})
 
     
     else:
         print(f'!!ERROR!! Unknown target: {target}')
     
-    # print(os.environ)
     return payload
 
 
@@ -99,9 +92,6 @@ def model_req(payload=None):
     headers = dict()
     headers["Content-Type"] = "application/json"
     if api_key: headers["Authorization"] = f"Bearer {api_key}"
-
-    #print(url, headers)
-    #print(payload)
 
     # Send out request to Model Provider
     try:
@@ -155,12 +145,13 @@ if __name__ == "__main__":
     MODEL = args.model
     TEMPLATE_BEFORE = args.system_instructions
     TEMPLATE_AFTER = args.format_response
-    PROMPT = TEMPLATE_BEFORE + '\n' + MESSAGE + '\n' + TEMPLATE_AFTER
+    # PROMPT = TEMPLATE_BEFORE + '\n' + MESSAGE + '\n' + TEMPLATE_AFTER
+    # PROMPT = MESSAGE
 
     payload=create_payload(
                         target=TARGET,
                         model=MODEL,
-                        prompt=PROMPT,
+                        prompt=MESSAGE,
                         temperature=1.0,
                         num_ctx=100,
                         num_predict=100)
