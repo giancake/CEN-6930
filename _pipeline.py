@@ -1,4 +1,3 @@
-# import argparse
 import requests
 import json
 import os
@@ -46,7 +45,6 @@ def create_payload(model, prompt, target="ollama", **kwargs):
 
     payload = None
 
-    # if target == "ollama-remote":
     if target == "ollama":
         payload = {
             "model": model,
@@ -131,53 +129,75 @@ def model_req(payload=None):
 ###
 
 if __name__ == "__main__":
-    # parser = argparse.ArgumentParser(description="Run the model pipeline")
-    # parser.add_argument("prompt", type=str, default="1+1", nargs='?', help="The prompt to be requested to the Model Server")
-    # parser.add_argument("target", choices=["ollama-local", "ollama-remote", "open-webui"], default="ollama-remote", nargs='?', help="The target LLM Model Server to be used") 
-    # parser.add_argument("model", type=str, default="gemma", nargs='?', help="The Model name to be used")
-    # parser.add_argument("system_instructions", type=str, default="Act like you are am expert\nYour client is asking:", nargs='?', help='System instructions to be used')
-    # parser.add_argument("format_response", type=str, default="give a super detailed answer", nargs='?', help='format response')
-    # args=parser.parse_args()
-    
-    # from _pipeline import create_payload, model_req
-    
-    # MESSAGE = args.prompt
-    # TARGET= args.target
-    # MODEL = args.model
-    # TEMPLATE_BEFORE = args.system_instructions
-    # TEMPLATE_AFTER = args.format_response
-    
-    # payload=create_payload(
-    #                     target=TARGET,
-    #                     model=MODEL,
-    #                     prompt=MESSAGE,
-    #                     temperature=100,
-    #                     num_ctx=100,
-    #                     num_predict=100)
 
+    # ##
+    # ## ZERO SHOT PROMPTING
+    # ##
+
+    # from _pipeline import create_payload, model_req
+
+    # #### (1) Adjust the inbounding  Prompt, simulating inbounding requests from users or other systems
+    # # MESSAGE = "What is 984 * log(2)"
+    # MESSAGE = """Design a robust IT network infrastructure that supports both LAN and WAN access for voice and data applications. Ensure the solution is:
+    #             - High-speed and optimized for low latency  
+    #             - Scalable for future expansion  
+    #             - Secure against cyber threats  
+    #             - Equipped with redundancy and failover mechanisms  
+
+    #             Provide a structured solution, covering:
+    #             1. Network Architecture (LAN/WAN design, VLANs, topology)  
+    #             2. Hardware Requirements (Routers, switches, firewalls, APs)  
+    #             3. Quality of Service (QoS for voice & data)  
+    #             4. Security Measures (Firewalls, VPN, encryption)  
+    #             5. Performance Optimization Techniques (Load balancing, caching, SD-WAN)  
+    #             6. Best Practices for Deployment and Maintenance  
+    #             """
+    # #### (2) Adjust the Prompt Engineering Technique to be applied, simulating Workflow Templates
+    # PROMPT = MESSAGE 
+
+    # #### (3) Configure the Model request, simulating Workflow Orchestration
+    # # Documentation: https://github.com/ollama/ollama/blob/main/docs/api.md
+    # payload = create_payload(#target="ollama",
+    #                         target="open-webui",
+    #                         # model="gemma", 
+    #                         # model="llama2",
+    #                         # model = "llama3.2",
+    #                         # model="phi4:latest",
+    #                         model="tinyllama:latest",
+    #                         prompt=PROMPT,
+    #                         temperature=1.0, 
+    #                         num_ctx=100, 
+    #                         num_predict=100)
+
+    # ### YOU DONT NEED TO CONFIGURE ANYTHING ELSE FROM THIS POINT
+    # # Send out to the model
     # time, response = model_req(payload=payload)
     # print(response)
     # if time: print(f'Time taken: {time}s')
 
-    ##
-    ## ZERO SHOT PROMPTING
-    ##
+    #
+    # FEW SHOTS PROMPTING
+    #
 
     from _pipeline import create_payload, model_req
 
     #### (1) Adjust the inbounding  Prompt, simulating inbounding requests from users or other systems
-    MESSAGE = "What is 984 * log(2)"
+    MESSAGE = "My professor in GenAI SDLC has left us an assignment which consist in building a prompt eng lab in python, using the https://chat.hpc.fau.edu/ or Ollama local install LLM servers. I need to know the requirements for building an IT network that supports LAN and WAN access for voice and data applications, that is very fast and renders a good performance"
 
     #### (2) Adjust the Prompt Engineering Technique to be applied, simulating Workflow Templates
-    PROMPT = MESSAGE 
+    # FEW_SHOT = "You are a math teacher. If student asked 1 + 1 you answer 2. If student ask 987 * 2 you answer only 1974. Student asked; provide the result only: "
+    FEW_SHOT = "You are a network architect specialist. If a client student asked an consult; respond with aan excellent assesment"
+    PROMPT = FEW_SHOT + '\n' + MESSAGE 
 
     #### (3) Configure the Model request, simulating Workflow Orchestration
     # Documentation: https://github.com/ollama/ollama/blob/main/docs/api.md
     payload = create_payload(target="ollama",
                             # target="open-webui",
-                            model="gemma", 
+                            # model="gemma", 
                             # model="llama2",
-                            # model = "llama3.2:latest",
+                            model = "llama3.2",
+                            # model="phi4:latest",
+                            # model="tinyllama:latest",
                             prompt=PROMPT, 
                             temperature=1.0, 
                             num_ctx=100, 
@@ -186,27 +206,54 @@ if __name__ == "__main__":
     ### YOU DONT NEED TO CONFIGURE ANYTHING ELSE FROM THIS POINT
     # Send out to the model
     time, response = model_req(payload=payload)
-    print(response)
+    print('First response:' + response)
     if time: print(f'Time taken: {time}s')
 
-    ##
-    ## FEW SHOTS PROMPTING
-    ##
+    # #### (1) Adjust the inbounding  Prompt, simulating inbounding requests from users or other systems
+    MESSAGE = response
+    
+    #### (2) Adjust the Prompt Engineering Technique to be applied, simulating Workflow Templates
+    FEW_SHOT = "You are a network architect specialist. Use the information provided, to enrich this assessment"
+    PROMPT = FEW_SHOT + '\n' + MESSAGE 
+    
+    #### (3) Configure the Model request, simulating Workflow Orchestration
+    # Documentation: https://github.com/ollama/ollama/blob/main/docs/api.md
+    payload = create_payload(target="ollama",
+                            # target="open-webui",
+                            # model="gemma", 
+                            # model="llama2",
+                            model = "llama3.2",
+                            # model="phi4:latest",
+                            # model="tinyllama:latest",
+                            prompt=PROMPT,
+                            temperature=1.0, 
+                            num_ctx=100, 
+                            num_predict=100)
+
+    ### YOU DONT NEED TO CONFIGURE ANYTHING ELSE FROM THIS POINT
+    # Send out to the model
+    time, response = model_req(payload=payload)
+    print('Second response' + response)
+    if time: print(f'Time taken: {time}s')
+
+    # ##
+    # ## PROMPT TEMPLATE PROMPTING
+    # ##
 
     # from _pipeline import create_payload, model_req
 
     # #### (1) Adjust the inbounding  Prompt, simulating inbounding requests from users or other systems
-    # MESSAGE = "Calculate 984 * log(2)"
+    # MESSAGE = "984 * log(2)"
 
     # #### (2) Adjust the Prompt Engineering Technique to be applied, simulating Workflow Templates
-    # FEW_SHOT = "You are a math teacher. If student asked 1 + 1 you answer 2. If student ask 987 * 2 you answer only 1974. Student asked; provide the result only: "
-    # PROMPT = FEW_SHOT + '\n' + MESSAGE 
+    # TEMPLATE_BEFORE="Act like you are a math teacher. Answer to this question from an student:"
+    # TEMPLATE_AFTER="Provide the answer only. No explanations!"
+    # PROMPT = TEMPLATE_BEFORE + '\n' + MESSAGE + '\n' + TEMPLATE_AFTER
 
     # #### (3) Configure the Model request, simulating Workflow Orchestration
     # # Documentation: https://github.com/ollama/ollama/blob/main/docs/api.md
     # payload = create_payload(target="ollama",
-    #                         # model="llama3.2:latest", 
-    #                         model="gemma",
+    #                         model="llama3.2:latest", 
     #                         prompt=PROMPT, 
     #                         temperature=1.0, 
     #                         num_ctx=100, 
