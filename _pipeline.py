@@ -65,13 +65,11 @@ def create_payload(model, prompt, target="ollama", **kwargs):
         }
 
         payload.update({key: value for key, value in kwargs.items()})
-
     
     else:
         print(f'!!ERROR!! Unknown target: {target}')
     
     return payload
-
 
 def model_req(payload=None):
     """
@@ -130,14 +128,12 @@ def model_req(payload=None):
 
 if __name__ == "__main__":
 
+    from _pipeline import create_payload, model_req
 
-
-
-    # ##
+    # # ##
     # ## ZERO SHOT PROMPTING
-    # ##
+    # ## 
 
-    # from _pipeline import create_payload, model_req
 
     # #### (1) Adjust the inbounding  Prompt, simulating inbounding requests from users or other systems
     # MESSAGE = """Design a robust IT network infrastructure that supports both LAN and WAN access for voice and data applications. Ensure the solution is:
@@ -154,6 +150,7 @@ if __name__ == "__main__":
     #             5. Performance Optimization Techniques (Load balancing, caching, SD-WAN)  
     #             6. Best Practices for Deployment and Maintenance  
     #             """
+
     # #### (2) Adjust the Prompt Engineering Technique to be applied, simulating Workflow Templates
     # PROMPT = MESSAGE 
 
@@ -177,13 +174,11 @@ if __name__ == "__main__":
     # print(response)
     # if time: print(f'Time taken: {time}s')
 
+    
+    # ##
+    # ## FEW SHOT PROMPTING
+    # ##
 
-      
-    # # ##
-    # # ## FEW SHOT PROMPTING
-    # # ##
-
-    # from _pipeline import create_payload, model_req
 
     # #### (1) Adjust the inbounding  Prompt, simulating inbounding requests from users or other systems
     # MESSAGE = "My professor in GenAI SDLC has left us an assignment which consist in building a prompt eng lab in python, using the https://chat.hpc.fau.edu/ or Ollama local install LLM servers. I need to know the requirements for building an IT network that supports LAN and WAN access for voice and data applications, that is very fast and renders a good performance"
@@ -205,12 +200,6 @@ if __name__ == "__main__":
     #                         temperature=1.0, 
     #                         num_ctx=100, 
     #                         num_predict=100)
-
-    # ### YOU DONT NEED TO CONFIGURE ANYTHING ELSE FROM THIS POINT
-    # # Send out to the model
-    # time, response = model_req(payload=payload)
-    # print('First response:' + response)
-    # if time: print(f'Time taken: {time}s')
 
     # ##
     # ## CHAINED FEW SHOT PROMPTING
@@ -237,20 +226,9 @@ if __name__ == "__main__":
     #                         num_ctx=100, 
     #                         num_predict=100)
 
-    # ### YOU DONT NEED TO CONFIGURE ANYTHING ELSE FROM THIS POINT
-    # # Send out to the model
-    # time, response = model_req(payload=payload)
-    # print('Second response' + response)
-    # if time: print(f'Time taken: {time}s')
-
-
-
-
     ##
     ## PROMPT TEMPLATE PROMPTING
     ##
-
-    from _pipeline import create_payload, model_req
 
     # #### (1) Adjust the inbounding  Prompt, simulating inbounding requests from users or other systems
     MESSAGE = "My professor in GenAI SDLC has left us an assignment which consist in building a prompt eng lab in python, using the https://chat.hpc.fau.edu/ or Ollama local install LLM servers. I need to know the requirements for building an IT network that supports LAN and WAN access for voice and data applications, that is very fast and renders a good performance"
@@ -264,8 +242,11 @@ if __name__ == "__main__":
     # # Documentation: https://github.com/ollama/ollama/blob/main/docs/api.md
     payload = create_payload(target="ollama",
                             # target="open-webui",
+                            # model="gemma", 
+                            # model="llama2", 
                             model="llama3.2", 
                             # model="phi4:latest",
+                            # model="tinyllama:latest",
                             prompt=PROMPT, 
                             temperature=1.0, 
                             num_ctx=300, # Increased context for better comprehension
