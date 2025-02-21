@@ -256,18 +256,20 @@ if __name__ == "__main__":
     MESSAGE = "My professor in GenAI SDLC has left us an assignment which consist in building a prompt eng lab in python, using the https://chat.hpc.fau.edu/ or Ollama local install LLM servers. I need to know the requirements for building an IT network that supports LAN and WAN access for voice and data applications, that is very fast and renders a good performance"
 
     # #### (2) Adjust the Prompt Engineering Technique to be applied, simulating Workflow Templates
-    TEMPLATE_BEFORE = "You are a network architect specialist and one of your clients asked a consult"
+    TEMPLATE_BEFORE = "You are a network architect specialist and one of your clients consulted you"
     TEMPLATE_AFTER= "Respond with an excellent assesment"
     PROMPT = TEMPLATE_BEFORE + '\n' + MESSAGE + '\n' + TEMPLATE_AFTER
 
     # #### (3) Configure the Model request, simulating Workflow Orchestration
     # # Documentation: https://github.com/ollama/ollama/blob/main/docs/api.md
     payload = create_payload(target="ollama",
+                            # target="open-webui",
                             model="llama3.2", 
+                            # model="phi4:latest",
                             prompt=PROMPT, 
                             temperature=1.0, 
-                            num_ctx=100, 
-                            num_predict=100)
+                            num_ctx=300, # Increased context for better comprehension
+                            num_predict=400) # More tokens for a detailed response
 
     ### YOU DONT NEED TO CONFIGURE ANYTHING ELSE FROM THIS POINT
     # Send out to the model
