@@ -14,13 +14,13 @@ This is a response to the Assignment part of the COURSE.
 
 # Research Question
 
-1-liner description of your request (or exploration).. Make it enthusiastically!
+1- Generate a prompt utilazin GenAI Prompint Engeneering Techniques 
 
 ## Arguments
 
 #### What is already known about this topic
 
-* you could do {something} to achieve {some result}
+* Perform the requierement analysis to achieve the solution description.
 * the challenges of {doing something}
 * the possibility of {doing something else}
 * ...

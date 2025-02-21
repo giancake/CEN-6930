@@ -234,7 +234,7 @@ if __name__ == "__main__":
     MESSAGE = "My professor in GenAI SDLC has left us an assignment which consist in building a prompt eng lab in python, using the https://chat.hpc.fau.edu/ or Ollama local install LLM servers. I need to know the requirements for building an IT network that supports LAN and WAN access for voice and data applications, that is very fast and renders a good performance"
 
     # #### (2) Adjust the Prompt Engineering Technique to be applied, simulating Workflow Templates
-    TEMPLATE_BEFORE = "You are a network architect specialist and one of your clients consulted you"
+    TEMPLATE_BEFORE = "You are a network architect specialist and one of your class mates in the masters asked you"
     TEMPLATE_AFTER= "Respond with an excellent assesment"
     PROMPT = TEMPLATE_BEFORE + '\n' + MESSAGE + '\n' + TEMPLATE_AFTER
 
