@@ -136,59 +136,13 @@ if __name__ == "__main__":
 
 
     # #### (1) Adjust the inbounding  Prompt, simulating inbounding requests from users or other systems
-    # MESSAGE = """Design a robust IT network infrastructure that supports both LAN and WAN access for voice and data applications. Ensure the solution is:
-    #             - High-speed and optimized for low latency  
-    #             - Scalable for future expansion  
-    #             - Secure against cyber threats  
-    #             - Equipped with redundancy and failover mechanisms  
-
-    #             Provide a structured solution, covering:
-    #             1. Network Architecture (LAN/WAN design, VLANs, topology)  
-    #             2. Hardware Requirements (Routers, switches, firewalls, APs)  
-    #             3. Quality of Service (QoS for voice & data)  
-    #             4. Security Measures (Firewalls, VPN, encryption)  
-    #             5. Performance Optimization Techniques (Load balancing, caching, SD-WAN)  
-    #             6. Best Practices for Deployment and Maintenance  
-    #             """
-
-    # #### (2) Adjust the Prompt Engineering Technique to be applied, simulating Workflow Templates
-    # PROMPT = MESSAGE 
-
-    # #### (3) Configure the Model request, simulating Workflow Orchestration
-    # # Documentation: https://github.com/ollama/ollama/blob/main/docs/api.md
-    # payload = create_payload(#target="ollama",
-    #                         target="open-webui",
-    #                         # model="gemma", 
-    #                         # model="llama2",
-    #                         # model = "llama3.2",
-    #                         # model="phi4:latest",
-    #                         model="tinyllama:latest",
-    #                         prompt=PROMPT,
-    #                         temperature=1.0, 
-    #                         num_ctx=100, 
-    #                         num_predict=100)
-
-    # ### YOU DONT NEED TO CONFIGURE ANYTHING ELSE FROM THIS POINT
-    # # Send out to the model
-    # time, response = model_req(payload=payload)
-    # print(response)
-    # if time: print(f'Time taken: {time}s')
-
-    
-    # ##
-    # ## FEW SHOT PROMPTING
-    # ##
-
-
-    # #### (1) Adjust the inbounding  Prompt, simulating inbounding requests from users or other systems
     # MESSAGE = "My professor in GenAI SDLC has left us an assignment which consist in building a prompt eng lab in python, using the https://chat.hpc.fau.edu/ or Ollama local install LLM servers. I need to know the requirements for building an IT network that supports LAN and WAN access for voice and data applications, that is very fast and renders a good performance"
 
-    # #### (2) Adjust the Prompt Engineering Technique to be applied, simulating Workflow Templates
-    # FEW_SHOT = "You are a network architect specialist. If a client student asked an consult; respond with aan excellent assesment"
-    # PROMPT = FEW_SHOT + '\n' + MESSAGE 
+    # # #### (2) Adjust the Prompt Engineering Technique to be applied, simulating Workflow Templates
+    # PROMPT = MESSAGE 
 
-    # #### (3) Configure the Model request, simulating Workflow Orchestration
-    # # Documentation: https://github.com/ollama/ollama/blob/main/docs/api.md
+    # # #### (3) Configure the Model request, simulating Workflow Orchestration
+    # # # Documentation: https://github.com/ollama/ollama/blob/main/docs/api.md
     # payload = create_payload(target="ollama",
     #                         # target="open-webui",
     #                         # model="gemma", 
@@ -196,10 +150,37 @@ if __name__ == "__main__":
     #                         model = "llama3.2",
     #                         # model="phi4:latest",
     #                         # model="tinyllama:latest",
-    #                         prompt=PROMPT, 
+    #                         prompt=PROMPT,
     #                         temperature=1.0, 
-    #                         num_ctx=100, 
-    #                         num_predict=100)
+    #                         num_ctx=300, 
+    #                         num_predict=300)
+    
+
+    ##
+    ## FEW SHOT PROMPTING
+    ##
+
+
+    #### (1) Adjust the inbounding  Prompt, simulating inbounding requests from users or other systems
+    MESSAGE = "My professor in GenAI SDLC has left us an assignment which consist in building a prompt eng lab in python, using the https://chat.hpc.fau.edu/ or Ollama local install LLM servers. I need to know the requirements for building an IT network that supports LAN and WAN access for voice and data applications, that is very fast and renders a good performance"
+
+    #### (2) Adjust the Prompt Engineering Technique to be applied, simulating Workflow Templates
+    FEW_SHOT = "You are a network architect specialist. If a client student asked an consult; respond with aan excellent assesment"
+    PROMPT = FEW_SHOT + '\n' + MESSAGE 
+
+    #### (3) Configure the Model request, simulating Workflow Orchestration
+    # Documentation: https://github.com/ollama/ollama/blob/main/docs/api.md
+    payload = create_payload(target="ollama",
+                            # target="open-webui",
+                            # model="gemma", 
+                            # model="llama2",
+                            model = "llama3.2",
+                            # model="phi4:latest",
+                            # model="tinyllama:latest",
+                            prompt=PROMPT, 
+                            temperature=1.0, 
+                            num_ctx=300, 
+                            num_predict=300)
 
     # ##
     # ## CHAINED FEW SHOT PROMPTING
@@ -231,26 +212,26 @@ if __name__ == "__main__":
     ##
 
     # #### (1) Adjust the inbounding  Prompt, simulating inbounding requests from users or other systems
-    MESSAGE = "My professor in GenAI SDLC has left us an assignment which consist in building a prompt eng lab in python, using the https://chat.hpc.fau.edu/ or Ollama local install LLM servers. I need to know the requirements for building an IT network that supports LAN and WAN access for voice and data applications, that is very fast and renders a good performance"
+    # MESSAGE = "My professor in GenAI SDLC has left us an assignment which consist in building a prompt eng lab in python, using the https://chat.hpc.fau.edu/ or Ollama local install LLM servers. I need to know the requirements for building an IT network that supports LAN and WAN access for voice and data applications, that is very fast and renders a good performance"
 
     # #### (2) Adjust the Prompt Engineering Technique to be applied, simulating Workflow Templates
-    TEMPLATE_BEFORE = "You are a network architect specialist and one of your class mates in the masters asked you"
-    TEMPLATE_AFTER= "Respond with an excellent assesment"
-    PROMPT = TEMPLATE_BEFORE + '\n' + MESSAGE + '\n' + TEMPLATE_AFTER
+    # TEMPLATE_BEFORE = "You are a network architect specialist and one of your class mates in the masters asked you"
+    # TEMPLATE_AFTER= "Respond with an excellent assesment"
+    # PROMPT = TEMPLATE_BEFORE + '\n' + MESSAGE + '\n' + TEMPLATE_AFTER
 
-    # #### (3) Configure the Model request, simulating Workflow Orchestration
-    # # Documentation: https://github.com/ollama/ollama/blob/main/docs/api.md
-    payload = create_payload(target="ollama",
-                            # target="open-webui",
-                            # model="gemma", 
-                            # model="llama2", 
-                            model="llama3.2", 
-                            # model="phi4:latest",
-                            # model="tinyllama:latest",
-                            prompt=PROMPT, 
-                            temperature=1.0, 
-                            num_ctx=300, # Increased context for better comprehension
-                            num_predict=400) # More tokens for a detailed response
+    # # #### (3) Configure the Model request, simulating Workflow Orchestration
+    # # # Documentation: https://github.com/ollama/ollama/blob/main/docs/api.md
+    # payload = create_payload(target="ollama",
+    #                         # target="open-webui",
+    #                         # model="gemma", 
+    #                         # model="llama2", 
+    #                         model="llama3.2", 
+    #                         # model="phi4:latest",
+    #                         # model="tinyllama:latest",
+    #                         prompt=PROMPT, 
+    #                         temperature=1.0, 
+    #                         num_ctx=300, # Increased context for better comprehension
+    #                         num_predict=400) # More tokens for a detailed response
 
     ### YOU DONT NEED TO CONFIGURE ANYTHING ELSE FROM THIS POINT
     # Send out to the model

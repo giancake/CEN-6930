@@ -50,7 +50,32 @@ Describe how you are building this research process.
 
 # Results
 
-Describe the results achieved through your research process.
+With the ZERO-SHOT configuration it took 71.51s The result Answer was short but very important.
+
+payload = create_payload(target="ollama",
+                            model = "llama3.2",
+                            temperature=1.0, 
+                            num_ctx=100, 
+                            num_predict=100)
+
+With the ZERO-SHOT configuration it took 78.40s The result Answer was mode detailed and extensive but it didn't complete the prompt at the end.
+
+payload = create_payload(target="ollama",
+                            model = "llama3.2",
+                            temperature=1.0, 
+                            num_ctx=300, 
+                            num_predict=300)
+
+With the FEW-SHOT configuration it took 17.53s The result Answer was much more faster but very short and tight, not as extensive and detailed.
+
+payload = create_payload(target="ollama",
+                            model = "llama3.2",
+                            prompt=PROMPT, 
+                            temperature=1.0, 
+                            num_ctx=100, 
+                            num_predict=100)
+
+
 
 # Further research
 
