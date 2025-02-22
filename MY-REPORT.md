@@ -21,14 +21,11 @@ Generate a prompt utilizing the GenAI Prompt Engeneering Techniques. We will use
 
 #### What is already known about this topic
 
-* We know that pipelines play a crucial role in managing the end to end process of developing, tuning, and mantaining AI models.
+* We know that pipelines play a crucial role in managing the end to end process of developing, tuning, and mantaining AI models. GenAI pipelines, are a strucutred sequence of automated steps, designed to fine tune, test and deploy generative AI models. Among the different types of pipelines, there exist Data pipelines that handle, clean, transform and augment the data which are esential for ensuring high quality for training and fine tunning models.
 
 * The challenges of Gen AI SDLC pipelines may include the data handling because it requires extensive cleaning, augmentation and labeling, handling biases and ensuring data diversity. The data privacy and security could be at risk of exposing sensitive information when trainig real-world model datasets, there are alos scalability challenges in data handling, because LLM's requiere massive datasets leading to high high storage and processing costs.
 
- model training, monitoring and some ethical consideration.
-
-* the possibility of {doing something else}
-* ...
+* Model training, monitoring and some ethical consideration.
 
 #### What this research is exploring
 
