@@ -1,11 +1,12 @@
 # Assignment 1 - Prompt Engeneering Lab
-Prompt Engineering Lab, is a simple programming Lab for exercising Ollama, Prompt Engineering, and coding of GenAI Pipelines. This Lab is a hands-on experiences with diverse techniques around Prompt Engineering to get thinking about different Prompts, Pipelines, and Models
+Prompt Engineering Lab, is a programming Laboratory for exercising Ollama, Prompt Engineering, and coding of GenAI Pipelines. This Lab is a hands-on experiences with diverse techniques around Prompt Engineering to get thinking about different Prompts, Pipelines, and Models
 
 ## Table of Contents
-- [Installation](#installation)
-- [Usage](#usage)
+- [Installation](#Installation)
+- [Usage](#Usage)
 - [Prompt-Engineering-Techniques](#Prompt-Engineering-Techniques)
 - [Experimenting](#Experimenting)
+- [References](References)
 - [Contact](#Contact)
 - [License](#License)
 
@@ -14,7 +15,8 @@ Prompt Engineering Lab, is a simple programming Lab for exercising Ollama, Promp
    ```sh
    git clone https://github.com/giancake/PromptEngineeringLab.git
 
-2. ```sh
+2. Install the Lab requierements
+   ```sh
    pip install -r requirements.txt
 
 ## Usage
@@ -23,7 +25,6 @@ Prompt Engineering Lab, is a simple programming Lab for exercising Ollama, Promp
    python3 _pipeline.py
 
 ## Prompt-Engineering-Techniques
-
 For our Lab, we will be experimenting with the following prompt Engeneering techniques
 
 - Zero-Shot
@@ -34,10 +35,39 @@ For our Lab, we will be experimenting with the following prompt Engeneering tech
 
 ## Experimenting
 
+#### (1) In a ZERO-SHOT example, We will be adjunting our prompt, simulating that we are a user inputing a request to the system
+
+```python
+MESSAGE = "My professor in GenAI SDLC has left us an assignment which consist in building a prompt eng lab in python, using the https://chat.hpc.fau.edu/ or Ollama local install LLM servers. I need to know the requirements for building an IT network that supports LAN and WAN access for voice and data applications, that is very fast and renders a good performance"
+```
+
+#### (2) We will be adjusting the Prompt Engineering Technique to be applied, simulating diverse Workflow Templates
+
+```python
+PROMPT = MESSAGE 
+```
+
+#### (3) We will be configuring different models request to vary the workflow Orchestration
+
+```python
+payload = create_payload(target="ollama",
+                           model = "llama3.2",
+                           prompt=PROMPT,
+                           temperature=1.0, 
+                           num_ctx=300, 
+                           num_predict=300)
+```
+
 ## Contact
 - Author: Wilder Villacorta
 - Email: wvillacorta2024@fau.edu
 - GitHub: giancake (https://github.com/giancake/PromptEngineeringLab.git)
+
+## References
+* [Meta - Prompting Guide](https://www.llama.com/docs/how-to-guides/prompting/)
+* [OpenAI Prompting Engineering Guide](https://platform.openai.com/docs/guides/prompt-engineering)
+* [Ollama API](https://github.com/ollama/ollama/blob/main/docs/api.md)
+* [Open WebUI Endpoints](https://docs.openwebui.com/getting-started/api-endpoints/)
 
 ## License
 
