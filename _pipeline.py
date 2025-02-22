@@ -161,7 +161,7 @@ if __name__ == "__main__":
 
 
     # #### (1) Adjust the inbounding  Prompt, simulating inbounding requests from users or other systems
-    # MESSAGE = "My professor in GenAI SDLC has left us an assignment which consist in building a prompt eng lab in python, using the https://chat.hpc.fau.edu/ or Ollama local install LLM servers. I need to know the requirements for building an IT network that supports LAN and WAN access for voice and data applications, that is very fast and renders a good performance"
+    # MESSAGE = "My professor in GenAI SDLC has left me an assignment which consists in building a Prompt Engeneering Laboratory in python, using the https://chat.hpc.fau.edu/ or Ollama local install LLM servers. I need to know the requirements for building an IT network that supports LAN and WAN access for voice and data applications, that is very fast and renders a good performance"
 
     # # #### (2) Adjust the Prompt Engineering Technique to be applied, simulating Workflow Templates
     # PROMPT = MESSAGE 
