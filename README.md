@@ -15,7 +15,7 @@ Prompt Engineering Lab, is a programming Laboratory for exercising Ollama, Promp
    ```sh
    git clone https://github.com/giancake/PromptEngineeringLab.git
 
-2. Install the Lab requierements
+2. Install the Lab requierements:
    ```sh
    pip install -r requirements.txt
 
