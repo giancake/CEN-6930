@@ -21,8 +21,12 @@ Generate a prompt utilizing the GenAI Prompt Engeneering Techniques. We will use
 
 #### What is already known about this topic
 
-* Perform the requierement analysis to achieve the solution description.
-* the challenges of {doing something}
+* We know that pipelines play a crucial role in managing the end to end process of developing, tuning, and mantaining AI models.
+
+* The challenges of Gen AI SDLC pipelines may include the data handling because it requires extensive cleaning, augmentation and labeling, handling biases and ensuring data diversity. The data privacy and security could be at risk of exposing sensitive information when trainig real-world model datasets, there are alos scalability challenges in data handling, because LLM's requiere massive datasets leading to high high storage and processing costs.
+
+ model training, monitoring and some ethical consideration.
+
 * the possibility of {doing something else}
 * ...
 
@@ -30,7 +34,8 @@ Generate a prompt utilizing the GenAI Prompt Engeneering Techniques. We will use
 
 <!-- Free-format; use the topics that are applicable to your exploration  -->
 
-* we employ {some technique}
+* we employ Perform the requierement analysis to achieve the solution description.
+{some technique}
 * we are building {something}
 * we are exploring {some idea or technology}
 
