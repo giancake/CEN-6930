@@ -10,11 +10,13 @@ Prompt Engineering Lab, is a simple programming Lab for exercising Ollama, Promp
 
 ## Installation
 1. Clone the repository:
-   ```sh git clone https://github.com/giancake/PromptEngineeringLab.git
+   ```sh
+   git clone https://github.com/giancake/PromptEngineeringLab.git
 
-2. pip install -r requirements.txt
+2. ```sh
+   pip install -r requirements.txt
 
 ## Usage
-Run the application:
-```sh
-python3 _pipeline.py
+3. Run the application:
+   ```sh
+   python3 _pipeline.py
