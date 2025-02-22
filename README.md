@@ -20,3 +20,24 @@ Prompt Engineering Lab, is a simple programming Lab for exercising Ollama, Promp
 3. Run the application:
    ```sh
    python3 _pipeline.py
+
+## Prompt Engineering Techniques
+
+For our Lab, we will be experimenting with the following prompt Engeneering techniques
+
+- Zero-Shot
+- Few-Shot
+- Prompt Template
+- Chain-of-Thought
+- Meta Prompting
+
+## Experimenting
+
+## Contact
+- Author: Wilder Villacorta
+- Email: wvillacorta2024@fau.edu
+- GitHub: giancake (https://github.com/giancake/PromptEngineeringLab.git)
+
+## Acknowledgments
+Thanks to contributors and open-source libraries that made this project possible.
+
