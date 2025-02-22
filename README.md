@@ -35,13 +35,13 @@ For our Lab, we will be experimenting with the following prompt Engeneering tech
 
 ## Experimenting
 
-#### (1) In a ZERO-SHOT example, We will be adjunting our prompt, simulating that we are a user inputing a request to the system
+#### (1) In a ZERO-SHOT example, We will be adjusting our prompt, simulating that we are a user inputting a request to the system
 
 ```python
 MESSAGE = "My professor in GenAI SDLC has left us an assignment which consist in building a prompt eng lab in python, using the https://chat.hpc.fau.edu/ or Ollama local install LLM servers. I need to know the requirements for building an IT network that supports LAN and WAN access for voice and data applications, that is very fast and renders a good performance"
 ```
 
-#### (2) We will be adjusting the Prompt Engineering Technique to be applied, simulating diverse Workflow Templates
+#### (2) For the ZERO-SHOT, which is one of the most basic prompts, the message is passed directly to the system.
 
 ```python
 PROMPT = MESSAGE 
