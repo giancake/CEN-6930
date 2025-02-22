@@ -75,7 +75,23 @@ payload = create_payload(target="ollama",
                             num_ctx=100, 
                             num_predict=100)
 
+With the FEW-SHOT configuration it took 91.23s The result Answer was much lenghtier, but the information was more extensive, however not  completed at the end.
 
+payload = create_payload(target="ollama",
+                            model = "llama3.2",
+                            prompt=PROMPT, 
+                            temperature=1.0, 
+                            num_ctx=100, 
+                            num_predict=100)
+
+With the PROMPT TEMPLATE PROMPTING configuration it took 84.68s The result Answer was much lenghtier, but the information was more extensive, however not  completed at the end.
+
+payload = create_payload(target="ollama",
+                            model = "llama3.2",
+                            prompt=PROMPT, 
+                            temperature=1.0, 
+                            num_ctx=300, 
+                            num_predict=300)
 
 # Further research
 
