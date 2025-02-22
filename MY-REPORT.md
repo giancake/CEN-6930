@@ -2,7 +2,7 @@
 
 # Wilders Prompt Engeering Lab
 
-1- In This Lab we seek to execute  simple programming Lab for exercising Ollama, Prompt Engineering, and coding of GenAI Pipelines. This Lab is a hands-on experiences with diverse techniques around Prompt Engineering to get thinking about different Prompts, Pipelines, and Models
+In This Lab we seek to execute different Prompting Techniques in our Prompting Lab and test the Ollama local installs and the FAU open-webui servers. We will do the requierment analysis for using Prompt Engineering to find out our best solution description, making use of the GenAI Pipelines. This Lab is a hands-on experiences with diverse techniques around Prompt Engineering to get thinking about different Prompts, Pipelines, and Models.
 
 <!-- WHEN APPLICABLE, REMOVE THE COMMENT MARK AND COMPLETE
 This is a response to the Assignment part of the COURSE.
@@ -14,7 +14,8 @@ This is a response to the Assignment part of the COURSE.
 
 # Research Question
 
-1- Generate a prompt utilazin GenAI Prompint Engeneering Techniques 
+Generate a prompt utilizing the GenAI Prompt Engeneering Techniques. We will use the following prompt for our experiment:
+"My professor in GenAI SDLC has left me an assignment which consists in building a Prompt Engeneering Laboratory in python, using the https://chat.hpc.fau.edu/ or Ollama local install LLM servers. I need to know the requirements for building an IT network that supports LAN and WAN access for voice and data applications, that is very fast and renders a good performance"
 
 ## Arguments
 
