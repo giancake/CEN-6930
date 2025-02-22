@@ -4,7 +4,7 @@ Prompt Engineering Lab, is a simple programming Lab for exercising Ollama, Promp
 ## Table of Contents
 - [Installation](#installation)
 - [Usage](#usage)
-- [Prompt Engineering Techniques](#Prompt Engineering Techniques)
+- [Prompt-Engineering-Techniques](#Prompt-Engineering-Techniques)
 - [Experimenting](#Experimenting)
 - [Contact](#Contact)
 - [License](#License)
@@ -22,7 +22,7 @@ Prompt Engineering Lab, is a simple programming Lab for exercising Ollama, Promp
    ```sh
    python3 _pipeline.py
 
-## Prompt Engineering Techniques
+## Prompt-Engineering-Techniques
 
 For our Lab, we will be experimenting with the following prompt Engeneering techniques
 
