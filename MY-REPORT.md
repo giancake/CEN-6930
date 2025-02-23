@@ -54,13 +54,13 @@ Describe how you are building this research process.
 # Results
 
 With the ZERO-SHOT configuration it took 71.51s The result Answer was short but very important.
-
+```python
 payload = create_payload(target="ollama",
                             model = "llama3.2",
                             temperature=1.0, 
                             num_ctx=100, 
                             num_predict=100)
-
+```
 With the ZERO-SHOT configuration it took 78.40s The result Answer was mode detailed and extensive but it didn't complete the prompt at the end.
 
 payload = create_payload(target="ollama",
