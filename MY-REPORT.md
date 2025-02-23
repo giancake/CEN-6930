@@ -25,16 +25,15 @@ Generate a prompt utilizing the GenAI Prompt Engeneering Techniques. We will use
 
 * The challenges of Gen AI SDLC pipelines may include the data handling because it requires extensive cleaning, augmentation and labeling, handling biases and ensuring data diversity. The data privacy and security could be at risk of exposing sensitive information when trainig real-world model datasets, there are alos scalability challenges in data handling, because LLM's requiere massive datasets leading to high high storage and processing costs.
 
-* Model training, monitoring and some ethical consideration.
+* Model training requires high computational CPU/GPU energy consumption costs. Fine tunning and modeling could be catastrophic new data can lead to the model forgetting earlier knowledge.
 
 #### What this research is exploring
 
 <!-- Free-format; use the topics that are applicable to your exploration  -->
 
-* we employ Perform the requierement analysis to achieve the solution description.
-{some technique}
-* we are building {something}
-* we are exploring {some idea or technology}
+* The GenAI SDLC Prompt Engineering Lab is exploring how to build a structured prompt engineering framework using Python language.
+* Developing a Lab environment using local Ollama or the FAU servers and experimenting with different prompting techniques.
+* We are exploring the automation of prompt prompt evaluation, creating pipelines to refine and evaluate prompts systematically
 
 #### Implications for practice
 
@@ -47,7 +46,7 @@ Generate a prompt utilizing the GenAI Prompt Engeneering Techniques. We will use
 
 # Research Method
 
-Describe how you are building this research process.
+Combination of Experimental, Iterative and Comparative Analysis Research
 
 <!-- WHEN APPLICABLE AND AVAILABLE -->
 
