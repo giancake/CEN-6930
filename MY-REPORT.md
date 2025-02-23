@@ -53,7 +53,7 @@ Describe how you are building this research process.
 
 # Results
 
-With the ZERO-SHOT configuration it took 71.51s The result Answer was short but very important.
+With the ZERO-SHOT prompting technique and using llama 3.2 the prompt took 71.51s to generate. The resulting prompt was very short in context but important.
 ```python
 payload = create_payload(target="ollama",
                             model = "llama3.2",
@@ -61,41 +61,45 @@ payload = create_payload(target="ollama",
                             num_ctx=100, 
                             num_predict=100)
 ```
-With the ZERO-SHOT configuration it took 78.40s The result Answer was mode detailed and extensive but it didn't complete the prompt at the end.
 
+With the ZERO-SHOT prompting technique and using llama 3.2 the prompt took 78.40s The resulting prompt was more detailed and extensive but the resulting prompt wasn't fully complete.
+```python
 payload = create_payload(target="ollama",
                             model = "llama3.2",
                             temperature=1.0, 
                             num_ctx=300, 
                             num_predict=300)
+```
 
-With the FEW-SHOT configuration it took 17.53s The result Answer was much more faster but very short and tight, not as extensive and detailed.
-
+With the FEW-SHOT prompting technique and using llama 3.2 the prompt took 17.53s The result prompt was much more faster but very short and not extensive nor detailed.
+```python
 payload = create_payload(target="ollama",
                             model = "llama3.2",
                             prompt=PROMPT, 
                             temperature=1.0, 
                             num_ctx=100, 
                             num_predict=100)
+```
 
-With the FEW-SHOT configuration it took 91.23s The result Answer was much lenghtier, but the information was more extensive, however not  completed at the end.
-
-payload = create_payload(target="ollama",
-                            model = "llama3.2",
-                            prompt=PROMPT, 
-                            temperature=1.0, 
-                            num_ctx=100, 
-                            num_predict=100)
-
-With the PROMPT TEMPLATE PROMPTING configuration it took 84.68s The result Answer was much lenghtier, but the information was more extensive, however not  completed at the end.
-
+With the FEW-SHOT prompting technique and using llama 3.2 the prompt took 91.23s The resulting prompt delayed more to be returned and the prompt information was more extensive, however not complete at the end.
+```python
 payload = create_payload(target="ollama",
                             model = "llama3.2",
                             prompt=PROMPT, 
                             temperature=1.0, 
                             num_ctx=300, 
                             num_predict=300)
+```
 
+With the PROMPT TEMPLATE PROMPTING technique and using llama 3.2 the prompt took 84.68s The resulting prompt delayed more to be returned and the information was more extensive, however not  completed at the end.
+```python
+payload = create_payload(target="ollama",
+                            model = "llama3.2",
+                            prompt=PROMPT, 
+                            temperature=1.0, 
+                            num_ctx=300, 
+                            num_predict=300)
+```
 # Further research
 
 Describe what we could do next and propose new ideas for further research.
