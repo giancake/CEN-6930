@@ -33,16 +33,15 @@ Generate a prompt utilizing the GenAI Prompt Engeneering Techniques. We will use
 
 * The GenAI SDLC Prompt Engineering Lab is exploring how to build a structured prompt engineering framework using Python language.
 * Developing a Lab environment using local Ollama or the FAU servers and experimenting with different prompting techniques.
-* We are exploring the automation of prompt prompt evaluation, creating pipelines to refine and evaluate prompts systematically
+* We are exploring the automation of the prompt evaluation, creating pipelines to refine and evaluate prompts systematically
 
 #### Implications for practice
 
 <!-- Free-format; use the topics that are applicable to your exploration  -->
 
-* it will be easier to {do something}
-* it will optimize {some process}
-* we will better understand {some process}
-* ...
+* The implications span across multiple areas of the AI development and efficiency, automation, system reliability and ethical considerations.
+* Improving the standarization of Prompt Engineering Workflows with structured methodologies for testings could reduce the trial-and-error in GenAI development.
+* Enhacing the Model request pipelines ensuring a better consistency and task aligned responses.
 
 # Research Method
 
