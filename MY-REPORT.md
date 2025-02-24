@@ -59,6 +59,7 @@ PROMPT = MESSAGE
 
 payload = create_payload(target="ollama",
                             model = "llama3.2",
+                            prompt=PROMPT,
                             temperature=1.0, 
                             num_ctx=300, 
                             num_predict=300)
