@@ -2,7 +2,7 @@
 
 # Wilders Prompt Engeering Lab
 
-In This Lab we seek to execute different Prompting Techniques in our Prompting Lab and test the Ollama local installs and the FAU open-webui servers. We will do the requierment analysis for using Prompt Engineering to find out our best solution description, making use of the GenAI Pipelines. This Lab is a hands-on experiences with diverse techniques around Prompt Engineering to get thinking about different Prompts, Pipelines, and Models.
+In This Lab we seek to execute different Prompting Techniques in our Prompting Lab and test the Ollama local installs and the FAU open-webui servers. We will do the requirement analysis for using Prompt Engineering to find out our best solution description, making use of the GenAI Pipelines. This Lab is a hands-on experience with diverse techniques around Prompt Engineering to get thinking about different Prompts, Pipelines, and Models.
 
 <!-- WHEN APPLICABLE, REMOVE THE COMMENT MARK AND COMPLETE
 This is a response to the Assignment part of the COURSE.
@@ -14,18 +14,18 @@ This is a response to the Assignment part of the COURSE.
 
 # Research Question
 
-Generate a prompt utilizing the GenAI Prompt Engeneering Techniques. We will use the following prompt for our experiment:
-"My professor in GenAI SDLC has left me an assignment which consists in building a Prompt Engeneering Laboratory in python, using the https://chat.hpc.fau.edu/ or Ollama local install LLM servers. I need to know the requirements for building an IT network that supports LAN and WAN access for voice and data applications, that is very fast and renders a good performance"
+Generate a prompt utilizing the GenAI Prompt Engineering Techniques. We will use the following prompt for our experiment:
+"My professor in GenAI SDLC has left me an assignment which consists in building a Prompt Engineering Laboratory in python, using the https://chat.hpc.fau.edu/ or Ollama local install LLM servers. I need to know the requirements for building an IT network that supports LAN and WAN access for voice and data applications, that is very fast and renders a good performance"
 
 ## Arguments
 
 #### What is already known about this topic
 
-* We know that pipelines play a crucial role in managing the end to end process of developing, tuning, and mantaining AI models. GenAI pipelines, are a strucutred sequence of automated steps, designed to fine tune, test and deploy generative AI models. Among the different types of pipelines, there exist Data pipelines that handle, clean, transform and augment the data which are esential for ensuring high quality for training and fine tunning models.
+* We know that pipelines play a crucial role in managing the end-to-end process of developing, tuning, and maintaining AI models. GenAI pipelines, are a structured sequence of automated steps, designed to fine tune, test and deploy generative AI models. Among the different types of pipelines, there exist Data pipelines that handle, clean, transform and augment the data which are essential for ensuring high quality for training and fine-tuning models.
 
-* The challenges of Gen AI SDLC pipelines may include the data handling because it requires extensive cleaning, augmentation and labeling, handling biases and ensuring data diversity. The data privacy and security could be at risk of exposing sensitive information when trainig real-world model datasets, there are alos scalability challenges in data handling, because LLM's requiere massive datasets leading to high high storage and processing costs.
+* The challenges of Gen AI SDLC pipelines may include the data handling because it requires extensive cleaning, augmentation and labeling, handling biases and ensuring data diversity. The data privacy and security could be at risk of exposing sensitive information when training real-world model datasets, there are lots of scalability challenges in data handling, because LLM's require massive datasets leading to high storage and processing costs.
 
-* Model training requires high computational CPU/GPU energy consumption costs. Fine tunning and modeling could be catastrophic new data can lead to the model forgetting earlier knowledge.
+* Model training requires high computational CPU/GPU energy consumption costs. Fine-tuning and modeling could be catastrophic new data can lead to the model forgetting earlier knowledge.
 
 #### What this research is exploring
 
@@ -40,8 +40,8 @@ Generate a prompt utilizing the GenAI Prompt Engeneering Techniques. We will use
 <!-- Free-format; use the topics that are applicable to your exploration  -->
 
 * The implications span across multiple areas of the AI development and efficiency, automation, system reliability and ethical considerations.
-* Improving the standarization of Prompt Engineering Workflows with structured methodologies for testings could reduce the trial-and-error in GenAI development.
-* Enhacing the Model request pipelines ensuring a better consistency and task aligned responses.
+* Improving the standardization of Prompt Engineering Workflows with structured methodologies for testings could reduce the trial-and-error in GenAI development.
+* Enhancing the Model request pipelines ensuring a better consistency and task aligned responses.
 
 # Research Method
 
@@ -79,7 +79,7 @@ payload = create_payload(target="ollama",
                             num_predict=300)
 ```
 
-3. With the ZERO-SHOT prompting technique and using gemma the prompt took 220.707s The resulting prompt was much more slower but very extensive and detailed.
+3. With the ZERO-SHOT prompting technique and using gemma the prompt took 220.707s The resulting prompt was much slower but very extensive and detailed.
 ```python
 MESSAGE = "My professor in GenAI SDLC has left me an assignment which consists in building a Prompt Engeneering Laboratory in python, using the https://chat.hpc.fau.edu/ or Ollama local install LLM servers. I need to know the requirements for building an IT network that supports LAN and WAN access for voice and data applications, that is very fast and renders a good performance"
 
@@ -141,7 +141,7 @@ print(response)
 if time: print(f'Time taken: {time}s')
 ```
 
-6. With the PROMPT TEMPLATE PROMPTING technique and using llama3.2 the prompt took 37.068s The resulting prompt response time decreased and the information returned was detailed, however not  completed at the end.
+6. With the PROMPT TEMPLATE PROMPTING technique and using llama3.2 the prompt took 37.068s The resulting prompt response time decreased, and the information returned was detailed, however not completed at the end.
 ```python
 MESSAGE = "My professor in GenAI SDLC has left us an assignment which consist in building a prompt eng lab in python, using the https://chat.hpc.fau.edu/ or Ollama local install LLM servers. I need to know the requirements for building an IT network that supports LAN and WAN access for voice and data applications, that is very fast and renders a good performance"
 
@@ -243,33 +243,45 @@ payload = create_payload(target="open-webui",
 ```python
 MESSAGE = "My professor in GenAI SDLC has left us an assignment which consist in building a prompt eng lab in python, using the https://chat.hpc.fau.edu/ or Ollama local install LLM servers. I need to know the requirements for building an IT network that supports LAN and WAN access for voice and data applications, that is very fast and renders a good performance"
 
-    TEMPLATE_BEFORE = "You are a network architect specialist and one of your class mates in the masters asked you"
-    TEMPLATE_AFTER= "Respond with an excellent assesment"
-    PROMPT = TEMPLATE_BEFORE + '\n' + MESSAGE + '\n' + TEMPLATE_AFTER
+TEMPLATE_BEFORE = "You are a network architect specialist and one of your class mates in the masters asked you"
+TEMPLATE_AFTER= "Respond with an excellent assesment"
+PROMPT = TEMPLATE_BEFORE + '\n' + MESSAGE + '\n' + TEMPLATE_AFTER
 
-    payload = create_payload(target="open-webui",
-                                model="phi4:latest",
-                                prompt=PROMPT, 
-                                temperature=1.0, 
-                                num_ctx=300,
-                                num_predict=300)
-    
-    time, response = model_req(payload=payload)
-    if time: print(f'Time taken: {time}s')
-
-    MESSAGE = response
-    TEMPLATE_BEFORE = "You are a Scientist in Technology and receive this information:"
-    TEMPLATE_AFTER= "Build an assesment based on best standards and practices"
-    PROMPT = TEMPLATE_BEFORE + '\n' + MESSAGE + '\n' + TEMPLATE_AFTER
-
-    payload = create_payload(target="open-webui",
-                            model="tinyllama:latest",
-                            prompt=PROMPT,
-                            temperature=1.0,
+payload = create_payload(target="open-webui",
+                            model="phi4:latest",
+                            prompt=PROMPT, 
+                            temperature=1.0, 
                             num_ctx=300,
                             num_predict=300)
+    
+time, response = model_req(payload=payload)
+if time: print(f'Time taken: {time}s')
+
+MESSAGE = response
+TEMPLATE_BEFORE = "You are a Scientist in Technology and receive this information:"
+TEMPLATE_AFTER= "Build an assesment based on best standards and practices"
+PROMPT = TEMPLATE_BEFORE + '\n' + MESSAGE + '\n' + TEMPLATE_AFTER
+
+payload = create_payload(target="open-webui",
+                        model="tinyllama:latest",
+                        prompt=PROMPT,
+                        temperature=1.0,
+                        num_ctx=300,
+                        num_predict=300)
 ```    
 
 # Further research
 
-Describe what we could do next and propose new ideas for further research.
+New ideas of improving GenAI SDLC could be focused on the efficiency, reliability and adaptability of the GenAI outputs. Some of these concepts could be summarized into the following key points:
+
+- Automated Prompt Optimization: develop AI techniques to refine the automated prompt generation, fine tune LLM's for prompt self improvements with reinforcement learning, Meta-learning feedback based for dynamic prompting optimization and Hyper parameter tuning for good structure prompt performance.
+
+- Adaptive Prompting: build adaptive prompts that evolve based on software context, contextual embedding based on prompts project history, augmented memory on LLM's to retrieve past responses dynamically and multi-turn prompts that adjust based on user interaction.
+
+- Standardized Prompting in SDLC: creating frameworks for standardizing prompt engineering across different SDLC tasks, defining prompt templates, developing benchmarks for metric evaluations and creating API's that integrate to the CI/CD pipeline.
+
+- Multi Agent Prompting Collaboration: research on multiagent prompts in GenAI systems for different models collaboration using specialized prompts, distributed prompting for multiple LLM handling SDLC tasks, multiagent coordination for debugging, testing and risk analysis and hierarchical prompting where on AI' verifies another's output.
+
+- Trust, Bias Mitigation and Explainability in Prompts: make GenAI driven software more trustworthy and transparent, explainable AI for prompt responses (how output was generated), bias reduction techniques and Ethical prompt design.
+
+
