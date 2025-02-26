@@ -198,7 +198,7 @@ payload = create_payload(target="open-webui",
                         num_ctx=300, 
                         num_predict=300)
 ```
-9. With the ZERO-SHOT prompting technique using open-webui and one level of automation using a chained ZERO-SHOT prompting technique the first prompt took 18.298s and the second prompt 19.903s The resulting prompt response information returned was somewhat fast but very detailed, and extensive.
+9. With the ZERO-SHOT prompting technique using open-webui and one level of automation using a chained ZERO-SHOT prompting technique the first prompt took 18.298s and the second prompt 19.903s The resulting prompt response time was 38.201s and the information returned was somewhat fast but very detailed, and extensive.
 ```python
 MESSAGE = "My professor in GenAI SDLC has left me an assignment which consists in building a Prompt Engeneering Laboratory in python, using the https://chat.hpc.fau.edu/ or Ollama local install LLM servers. I need to know the requirements for building an IT network that supports LAN and WAN access for voice and data applications, that is very fast and renders a good performance"
 PROMPT = MESSAGE 
@@ -239,7 +239,7 @@ payload = create_payload(target="open-webui",
                             num_predict=300)
 ```
 
-11. With the PROMPT TEMPLATE PROMPTING technique using open-webui and one level of automation using PROMPT TEMPLATE PROMPTING technique the first prompt took 16.068s and the second prompt 7.522s The resulting prompt response information returned was very detailed and short.
+11. With the PROMPT TEMPLATE PROMPTING technique using open-webui and one level of automation using PROMPT TEMPLATE PROMPTING technique the first prompt took 16.068s and the second prompt 7.522s The resulting prompt response time was 23.59s and the information returned was very detailed and short.
 ```python
 MESSAGE = "My professor in GenAI SDLC has left us an assignment which consist in building a prompt eng lab in python, using the https://chat.hpc.fau.edu/ or Ollama local install LLM servers. I need to know the requirements for building an IT network that supports LAN and WAN access for voice and data applications, that is very fast and renders a good performance"
 
