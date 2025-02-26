@@ -351,31 +351,60 @@ if __name__ == "__main__":
     ## 11. PROMPT TEMPLATE PROMPTING, 1 LEVEL OF AUTOMATION
     ## 
 
-    MESSAGE = "My professor in GenAI SDLC has left us an assignment which consist in building a prompt eng lab in python, using the https://chat.hpc.fau.edu/ or Ollama local install LLM servers. I need to know the requirements for building an IT network that supports LAN and WAN access for voice and data applications, that is very fast and renders a good performance"
+    # MESSAGE = "My professor in GenAI SDLC has left us an assignment which consist in building a prompt eng lab in python, using the https://chat.hpc.fau.edu/ or Ollama local install LLM servers. I need to know the requirements for building an IT network that supports LAN and WAN access for voice and data applications, that is very fast and renders a good performance"
 
-    TEMPLATE_BEFORE = "You are a network architect specialist and one of your class mates in the masters asked you"
-    TEMPLATE_AFTER= "Respond with an excellent assesment"
-    PROMPT = TEMPLATE_BEFORE + '\n' + MESSAGE + '\n' + TEMPLATE_AFTER
+    # TEMPLATE_BEFORE = "You are a network architect specialist and one of your class mates in the masters asked you"
+    # TEMPLATE_AFTER= "Respond with an excellent assesment"
+    # PROMPT = TEMPLATE_BEFORE + '\n' + MESSAGE + '\n' + TEMPLATE_AFTER
 
-    payload = create_payload(target="open-webui",
-                                model="phi4:latest",
-                                prompt=PROMPT, 
-                                temperature=1.0, 
-                                num_ctx=300,
-                                num_predict=300)
+    # payload = create_payload(target="open-webui",
+    #                             model="phi4:latest",
+    #                             prompt=PROMPT, 
+    #                             temperature=1.0, 
+    #                             num_ctx=300,
+    #                             num_predict=300)
     
-    time, response = model_req(payload=payload)
-    if time: print(f'Time taken: {time}s')
+    # time, response = model_req(payload=payload)
+    # if time: print(f'Time taken: {time}s')
 
-    MESSAGE = response
-    TEMPLATE_BEFORE = "You are a Scientist in Technology and receive this information:"
-    TEMPLATE_AFTER= "Build an assesment based on best standards and practices"
+    # MESSAGE = response
+    # TEMPLATE_BEFORE = "You are a Scientist in Technology and receive this information:"
+    # TEMPLATE_AFTER= "Build an assesment based on best standards and practices"
+    # PROMPT = TEMPLATE_BEFORE + '\n' + MESSAGE + '\n' + TEMPLATE_AFTER
+
+    # payload = create_payload(target="open-webui",
+    #                         model="tinyllama:latest",
+    #                         prompt=PROMPT,
+    #                         temperature=1.0,
+    #                         num_ctx=300,
+                            # num_predict=300)
+    
+    ##
+    ## 12. INSTRUCTION TUNED PROMPTING
+    ##
+
+    MESSAGE = """
+    Your task is to provide a detailed assessment of the IT network requirements for a system that supports both LAN and WAN access for voice and data applications. 
+    The network must be optimized for high speed and excellent performance.
+
+    Key considerations:
+    - Bandwidth and latency requirements
+    - Hardware and software infrastructure
+    - Security and redundancy measures
+    - Scalability and future-proofing
+
+    Be precise and ensure your response is structured logically. 
+    """
+
+    TEMPLATE_BEFORE = "### Instruction: You are a highly experienced network architect. Your goal is to provide an expert-level assessment based on the given requirements."
+    TEMPLATE_AFTER = "### Response: Provide a well-structured and professional response with actionable insights."
+
     PROMPT = TEMPLATE_BEFORE + '\n' + MESSAGE + '\n' + TEMPLATE_AFTER
 
-    payload = create_payload(target="open-webui",
-                            model="tinyllama:latest",
-                            prompt=PROMPT,
-                            temperature=1.0,
+    payload = create_payload(target="ollama",
+                            model="llama3.2",
+                            prompt=PROMPT, 
+                            temperature=1.0, 
                             num_ctx=300,
                             num_predict=300)
     
