@@ -297,6 +297,17 @@ payload = create_payload(target="ollama",
                         num_ctx=300,
                         num_predict=300)
 ```
+# Conclusion
+
+We can conclude that using very basic prompts such as the ZERO-SHOT with the local Ollama installed server and using the llama3.2, llama2 and gemma models had slower response time answers (86.091s llama3.2 best) The prompt response improved when it was upgraded to FEW-SHOT (38.08s), however when adding one level of automation it duplicated the time. When upgraded the model to PROMPT TEMPLATE PROMPTING techinque the response time improved to 37.068s but when adding a layer of automation, the response time duplicated and the resulting prompt information wasn't improved as expected.
+
+The best prompts and response times were when we used the FAU server with the ZERO-SHOT prompting obtaining 17.214s and with a very good prompt. Adding a level of automation didn't improve the prompt but it duplicated the response time.
+
+With the PROMPT TEMPLATE PROMPTING technique, using the FAU server the resulting prompt was good in information and the response time was pretty similar to the FEW-SHOT experiment, adding one level of automation increased the response time and didn't improve the prompt content.
+
+Adding a new INSTRUCTION TUNED PROMPTING and using local Ollama server the resulting prompt response time was 95.279s and the prompt information was good.
+
+In conclusion all our test performed better with the FAU server and this is because the model run in a very powerful server which is capable of processing this information faster as compared to the local install which was a Dell Computer Core i7 with 16GB of ram which can't perform as fast as a high end server.
 
 # Further research
 
@@ -311,5 +322,3 @@ New ideas of improving GenAI SDLC could be focused on the efficiency, reliabilit
 - Multi Agent Prompting Collaboration: research on multiagent prompts in GenAI systems for different models collaboration using specialized prompts, distributed prompting for multiple LLM handling SDLC tasks, multiagent coordination for debugging, testing and risk analysis and hierarchical prompting where on AI' verifies another's output.
 
 - Trust, Bias Mitigation and Explainability in Prompts: make GenAI driven software more trustworthy and transparent, explainable AI for prompt responses (how output was generated), bias reduction techniques and Ethical prompt design.
-
-
